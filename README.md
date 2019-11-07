@@ -1,8 +1,8 @@
-# Activerse
+# WIP: Activerse
 Short description and motivation.
 
 ## Usage
-How to use my plugin.
+TODO: write me
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -21,8 +21,11 @@ Or install it yourself as:
 $ gem install activerse
 ```
 
+TODO: integrate me
+
+
 ## Contributing
-Contribution directions go here.
+TODO: write me
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
