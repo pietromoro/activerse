@@ -1,9 +1,6 @@
-name: Ruby Gem
+name: Publish to Ruby Gem
 
 on:
-  pull_request:
-    branches:
-      - master
   push:
     branches:
       - master
