@@ -1,9 +1,9 @@
-name: Publish to Ruby Gem
+name: Publish Built Gem
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -17,13 +17,43 @@ jobs:
       with:
         version: 2.6.x
 
+    - name: Build Gem
+      run: |
+        gem build *.gemspec
     - name: Publish to RubyGems
       run: |
         mkdir -p $HOME/.gem
         touch $HOME/.gem/credentials
         chmod 0600 $HOME/.gem/credentials
         printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
-        gem build *.gemspec
         gem push *.gem
       env:
         GEM_HOST_API_KEY: ${{secrets.RUBYGEMS_AUTH_TOKEN}}
+    - name: Create Release
+      uses: actions/create-release@v1.0.0
+      id: create_release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+    - name: Upload to Release
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./activerse-*.gem
+        asset_name: activerse
+        asset_content_type: application/octet-stream
+    - name: Publish to GPR
+      run: |
+        mkdir -p $HOME/.gem
+        touch $HOME/.gem/credentials
+        chmod 0600 $HOME/.gem/credentials
+        printf -- "---\n:github: Bearer ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+        gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem
+      env:
+        GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_AUTH_TOKEN }}
