@@ -13,10 +13,15 @@ module Activerse
       yield self
     end
 
-  protected
     def self.after_page page, &block
       raise "Page must be a string" unless page.is_a? String
       @@after_page_actions[page] = block
     end
+
+    def self.on_finalize &block
+      @@on_finalize = block
+    end
+    mattr_reader :on_finalize
+
   end
 end
