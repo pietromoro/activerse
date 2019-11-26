@@ -1,5 +1,6 @@
 # WIP: Activerse
 [![Gem Version](https://badge.fury.io/rb/activerse.svg)](https://badge.fury.io/rb/activerse)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fe0e9c2138d24d10a268e72491562fec)](https://www.codacy.com/manual/pietromoro/activerse?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pietromoro/activerse&amp;utm_campaign=Badge_Grade)
 
 This gem is currently in the process of being made.
 
@@ -27,14 +28,14 @@ pages:
           step: 0.5
           data:
             attribute: false
-   - devise
+  - devise
 ```
 See the wiki for more informations.
 
 In the `config/initializers/activese.rb` file you can specify some code to be run before the web ui gets loaded or after it is submitted.
 
 ```ruby
-cofing.on_initialization do
+config.on_initialization do
   # some initialization code
 end
 
