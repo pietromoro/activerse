@@ -22,6 +22,5 @@ module Activerse
       @@on_finalize = block
     end
     mattr_reader :on_finalize
-
   end
 end
