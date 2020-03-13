@@ -19,8 +19,8 @@ module Activerse
     end
 
     def self.on_finalize &block
-      @@on_finalize = block
+      @@finalize = block
     end
-    mattr_reader :on_finalize
+    mattr_reader :finalize
   end
 end
