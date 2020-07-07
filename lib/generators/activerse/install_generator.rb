@@ -6,10 +6,10 @@ module Activerse
     class InstallGenerator < ::Rails::Generators::Base
       source_root File.expand_path("../../templates", __FILE__)
 
-      desc "Creates an activerse initializer and copy setup file to your application, optionally resetting master key"
+      desc "Creates an activerse initializer in your application configs directory"
 
       def copy_initializer
-        template "activerse.rb", "config/initializers/devise.rb"
+        template "activerse.rb", "config/initializers/activerse.rb"
       end
     end
   end
