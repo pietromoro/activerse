@@ -9,6 +9,9 @@ module Activerse
     mattr_accessor :finalize_behaviour
     @@finalize_behaviour = :reload_routes
 
+    mattr_accessor :strip_whitespaces
+    @@strip_whitespaces = true
+
     def self.setup
       yield self
     end
