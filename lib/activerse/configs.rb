@@ -3,7 +3,7 @@ module Activerse
     mattr_accessor :structure_file
     @@structure_file = 'structure.yml'
 
-    mattr_accessor :after_page_actions
+    mattr_reader :after_page_actions
     @@after_page_actions = {}
 
     mattr_accessor :finalize_behaviour
