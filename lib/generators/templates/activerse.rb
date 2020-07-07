@@ -6,7 +6,7 @@
 Activerse::Configs.setup do |config|
   # The structure file used by Activerse to create
   # the necessary pages. It's a YAML encoded file.
-  config.structure_file = 'structure.yml'
+  config.structure_file = 'activerse_structure.yml'
 
   # Block that will be called in the context of a controller
   # before finalize_behaviour gets called and after all
