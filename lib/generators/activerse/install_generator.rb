@@ -8,8 +8,13 @@ module Activerse
 
       desc "Creates an activerse initializer in your application configs directory"
 
-      def copy_initializer
+      def copy_templates
         template "activerse.rb", "config/initializers/activerse.rb"
+        template "structure.yml", "config/activerse_structure.yml"
+      end
+
+      def show_readme
+        readme "README" if behavior == :invoke
       end
     end
   end

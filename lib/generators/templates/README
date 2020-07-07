@@ -1,0 +1,28 @@
+===========================================================
+
+Activerse installed.
+
+Ensure you point your root correctly. For example:
+
+  # good
+  activerse_then_root to: 'home#index'
+
+  # bad
+  activerse_then_root to: ''
+  root to: 'home#index'
+
+
+You may want to regenerate your master key with
+
+  rake activerse:regenkeys
+
+or generate fresh credentials with
+
+  EDITOR="vim" rails credentials:edit
+
+
+Remember that either your config/credentials.yml.enc
+and your config/master.key files *must not* be under
+source control.
+
+===========================================================
