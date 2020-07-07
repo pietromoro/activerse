@@ -65,8 +65,8 @@ $ gem install activerse
 ```
 
 To create all necessary setup and files run:
-```ruby
-rails generate activerse:install
+```bash
+$ rails generate activerse:install
 ```
 
 ## Contributing
