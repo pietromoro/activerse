@@ -1,7 +1,7 @@
 module Activerse
   module Configs
     mattr_accessor :structure_file
-    @@structure_file = 'structure.yml'
+    @@structure_file = 'activerse_structure.yml'
 
     mattr_reader :after_page_actions
     @@after_page_actions = {}
