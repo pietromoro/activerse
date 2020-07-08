@@ -1,5 +1,4 @@
 require 'rails/generators/base'
-require 'securerandom'
 
 module Activerse
   module Generators
@@ -11,6 +10,19 @@ module Activerse
       def copy_templates
         template "activerse.rb", "config/initializers/activerse.rb"
         template "structure.yml", "config/activerse_structure.yml"
+      end
+
+      def update_git
+        return unless Dir.exists? ".git"
+        if File.exists? "config/credentials.enc.yml"
+          git rm: "--cached config/credentials.enc.yml"
+        end
+
+        append_to_file ".gitignore", <<-GIT
+        # Ignore credentials file (Activerse)
+        config/master.key
+        config/credentials.enc.yml
+        GIT
       end
 
       def show_readme
