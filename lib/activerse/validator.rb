@@ -29,9 +29,9 @@ module Activerse
       @input.dig(:pages)
     end
 
-    def fields_for page
+    def fields_for page_name
       @input.dig(:pages).each do |page|
-        next unless page.dig(:name) == page
+        next unless page.dig(:name) == page_name
         return page.dig(:fields)
       end
     end
