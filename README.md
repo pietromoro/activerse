@@ -6,6 +6,8 @@ This gem is currently in the process of being made.
 
 **DISCLAMER** All text is either temporary or not yet implemented. It is only a proposal of how the library could work
 
+<a href="https://www.buymeacoffee.com/pietromoro" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
 ## Usage
 Run `rails generate activerse:install` to create the configuration file and the setup structure file, as well as uncheking your `credentials.yml.enc` file from version control and adding it to the `.gitignore`. Then you can setup the structure file as you like, for example:
 
