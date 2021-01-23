@@ -9,9 +9,10 @@ This gem is currently in the process of being made.
 <a href="https://www.buymeacoffee.com/pietromoro" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 ## Usage
-Run `rails generate activerse:install` to create the configuration file and the setup structure file, as well as uncheking your `credentials.yml.enc` file from version control and adding it to the `.gitignore`. Then you can setup the structure file as you like, for example:
+Run `rails generate activerse:install` to create the configuration file, as well as uncheking your `credentials.yml.enc` file from version control and adding it to the `.gitignore`. Then you can setup how you want your credentials file to look like in the initializer
+file `activerse.rb` like this:
 
-```yml
+```ruby
 pages:
   - name: "APIS"
     fields:
@@ -34,18 +35,7 @@ pages:
 ```
 See the wiki for more informations.
 
-In the `config/initializers/activese.rb` file you can specify some code to be run before the web ui gets loaded or after it is submitted.
-
-```ruby
-config.on_initialization do
-  # some initialization code
-end
-
-config.after_submit do
-  # do your stuff here
-  # example: set up first user or first policies...
-end
-```
+In the `config/initializers/activese.rb` file you can specify more general settings.
 
 See the wiki or directly the initializer file for more configuration options.
 
@@ -68,7 +58,12 @@ $ gem install activerse
 
 To create all necessary setup and files run:
 ```bash
-$ rails generate activerse:install
+$ rails g activerse:install
+```
+
+When ready to fill your credentials run:
+```bash
+$ rails g activerse:fill
 ```
 
 ## Contributing
