@@ -1,13 +1,7 @@
 module Activerse
   module Configs
-    mattr_accessor :structure_file
-    @@structure_file = 'activerse_structure.yml'
-
-    mattr_reader :after_page_actions
-    @@after_page_actions = {}
-
     mattr_accessor :finalize_behaviour
-    @@finalize_behaviour = :reload_routes
+    @@finalize_behaviour = :restart_server
 
     mattr_accessor :strip_whitespaces
     @@strip_whitespaces = true
@@ -16,14 +10,9 @@ module Activerse
       yield self
     end
 
-    def self.after_page page, &block
-      raise "Page must be a string" unless page.is_a? String
-      @@after_page_actions[page] = block
+    mattr_reader :internal_structure
+    def self.credentials(&block)
+      @@internal_structure = block
     end
-
-    def self.on_finalize &block
-      @@finalize = block
-    end
-    mattr_reader :finalize
   end
 end

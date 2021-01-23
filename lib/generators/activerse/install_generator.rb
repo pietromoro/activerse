@@ -5,11 +5,10 @@ module Activerse
     class InstallGenerator < ::Rails::Generators::Base
       source_root File.expand_path("../../templates", __FILE__)
 
-      desc "Creates an activerse initializer in your application configs directory"
+      desc "Initialize activerse (creates the initializer file)"
 
       def copy_templates
         template "activerse.rb", "config/initializers/activerse.rb"
-        template "structure.yml", "config/activerse_structure.yml"
       end
 
       def update_git
