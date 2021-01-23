@@ -1,15 +1,14 @@
 ===========================================================
 
 Activerse installed.
+Remember to use the initializer file to create your
+desired credentials structure. You may run
 
-Ensure you point your root correctly. For example:
+  rails g activerse:fill
 
-  # good
-  activerse_then_root to: 'home#index'
-
-  # bad
-  activerse_then_root to: ''
-  root to: 'home#index'
+to fill out your credentials file. Addition made into the
+initializer will reflect on the credentials file upon
+reissuing this command.
 
 
 You may want to regenerate your master key with
