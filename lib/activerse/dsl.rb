@@ -9,11 +9,11 @@ module Activerse
     def section title, sym = nil, &block
       guess = `tput cols`.to_i
       guess == 0 ? 80 : guess
-      puts title.to_s.center(guess, '=')
+      puts " #{title.to_s} ".center(guess, '=')
       @@current_keys.push sym.nil? ? title.to_sym : sym.to_sym
       instance_eval(&block)
       @@current_keys.pop
-      puts '-' * guess + '\n'
+      puts '-' * guess
     end
 
     def subsection name, &block
@@ -23,14 +23,24 @@ module Activerse
     end
 
     def set key, to: nil
-      keys = (@@current_keys << key.to_sym)
+      keys = @@current_keys.push(key.to_sym)
       last = keys.inject(@@credentials) { |structure, key| structure[key] ||= {} }
       last[keys.last] = to
+      @@current_keys.pop
     end
  
     def ask question, echo: true
-      print question
-      gets
+      print question + " "
+      if Activerse::Configs.strip_whitespaces
+        return gets.chomp.strip
+      else
+        return gets.chomp
+      end
+    end
+
+    def save_to_database model, *args
+      model.create!(*args)
+      set model.to_sym, to: true
     end
   end
 end
