@@ -13,25 +13,13 @@ Run `rails generate activerse:install` to create the configuration file, as well
 file `activerse.rb` like this:
 
 ```ruby
-pages:
-  - name: "APIS"
-    fields:
-      - google_api: text_field
-      - aws_api: text_field
-      - maps_api: text_field
-  - name: "VARIABLES"
-    fields:
-      - my_var: select
-        options:
-          - true
-          - false
-          - "nothing"
-      - my_var2: number_field
-        options:
-          step: 0.5
-          data:
-            attribute: false
-  - devise
+config.credentials do
+  section "Email configuration", :email do
+    set :port, to: ask("Port:")
+    set :email, to: ask("Email:")
+    set :pwd, to: ask("Auth Token:")
+  end
+end
 ```
 See the wiki for more informations.
 
