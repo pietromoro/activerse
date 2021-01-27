@@ -36,6 +36,13 @@ module Activerse
       end
     end
 
+    def ask_and_set key, question, *args
+      last = @current_keys.inject(@credentials) { |structure, key| structure[key] ||= {} }
+      last_value = last[key.to_sym].nil? ? "" : last[key.to_sym]
+      response = ask("#{question} (#{last_value})", *args)
+      last[key.to_sym] = response.blank? ? last_value : response
+    end
+
     def save_to_database model, *args
       model.create!(*args)
       set model.to_sym, to: true
