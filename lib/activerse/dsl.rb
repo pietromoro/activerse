@@ -26,6 +26,11 @@ module Activerse
       last = @current_keys.inject(@credentials) { |structure, key| structure[key] ||= {} }
       last[key.to_sym] = to
     end
+
+    def get key
+      last = @current_keys.inject(@credentials) { |structure, key| structure[key] ||= {} }
+      last[key.to_sym]
+    end
  
     def ask question, echo: true
       print question + " "
