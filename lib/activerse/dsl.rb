@@ -10,7 +10,7 @@ module Activerse
       guess = `tput cols`.to_i
       guess == 0 ? 80 : guess
       puts " #{title.to_s} ".center(guess, '=')
-      @current_keys.push sym.nil? ? title.to_sym : sym.to_sym
+      @current_keys.push sym.nil? ? title.parameterize.underscore.to_sym : sym.to_sym
       instance_eval(&block)
       @current_keys.pop
       puts '-' * guess
@@ -48,9 +48,9 @@ module Activerse
       last[key.to_sym] = response.blank? ? last_value : response
     end
 
-    def save_to_database model, *args
-      model.create!(*args)
-      set model.to_sym, to: true
+    def save_to_database model, with: {}
+      model.create!(with)
+      set model.to_s.underscore.to_sym, to: true
     end
   end
 end
