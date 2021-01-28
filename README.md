@@ -19,7 +19,6 @@ end
 ```
 See the wiki for more informations.
 
-
 When ready to fill your credentials run:
 ```bash
 $ rails g activerse:fill
@@ -56,7 +55,6 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/pietro
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
 
 ## Code of Conduct
 
