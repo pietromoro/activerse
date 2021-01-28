@@ -23,12 +23,12 @@ module Activerse
     end
 
     def set key, to: nil
-      last = @current_keys.inject(@credentials) { |structure, key| structure[key] ||= {} }
+      last = @current_keys.inject(@credentials) { |structure, s_key| structure[s_key] ||= {} }
       last[key.to_sym] = to
     end
 
     def get key
-      last = @current_keys.inject(@credentials) { |structure, key| structure[key] ||= {} }
+      last = @current_keys.inject(@credentials) { |structure, s_key| structure[s_key] ||= {} }
       last[key.to_sym]
     end
  
@@ -42,7 +42,7 @@ module Activerse
     end
 
     def ask_and_set key, question, *args
-      last = @current_keys.inject(@credentials) { |structure, key| structure[key] ||= {} }
+      last = @current_keys.inject(@credentials) { |structure, s_key| structure[s_key] ||= {} }
       last_value = last[key.to_sym].nil? ? "" : last[key.to_sym]
       response = ask("#{question} (#{last_value})", *args)
       last[key.to_sym] = response.blank? ? last_value : response
