@@ -48,6 +48,10 @@ module Activerse
       last[key.to_sym] = response.blank? ? last_value : response
     end
 
+    def default key, to:
+      set key, to: to if get(key).nil?
+    end
+
     def save_to_database model, with: {}
       model.create!(with)
       set model.to_s.underscore.to_sym, to: true
