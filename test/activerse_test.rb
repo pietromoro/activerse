@@ -1,7 +1,7 @@
-require 'test_helper'
+require "test_helper"
 
-class Activerse::Test < ActiveSupport::TestCase
-  test "activerse is a module" do
-    assert_kind_of Module, Activerse
+class ActiverseTest < ActiveSupport::TestCase
+  test "it has a version number" do
+    assert Activerse::VERSION
   end
 end
