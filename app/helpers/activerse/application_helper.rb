@@ -1,4 +1,4 @@
 module Activerse
-  module SettingsHelper
+  module ApplicationHelper
   end
 end

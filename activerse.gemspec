@@ -1,29 +1,24 @@
-$:.push File.expand_path("lib", __dir__)
+require_relative "lib/activerse/version"
 
-# Maintain your gem's version:
-require "activerse/version"
-
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
   spec.name        = "activerse"
   spec.version     = Activerse::VERSION
   spec.authors     = ["Pietro Moro"]
   spec.email       = ["pietromoro@programmer.net"]
-
-  spec.homepage    = "https://github.com/pietromoro/activerse"
-  spec.summary     = "Generate initial settings and configurations within your terminal."
-  spec.description = "Rails gem that allows a project to be distributed over multiple companies, without having to set specific credentials in a file, allowing to distribute only it's structure, fillable whitin the terminal with a single command."
+  spec.homepage    = "github.com/pietromoro/activerse"
+  spec.summary     = "Spin up time settings for rails"
+  spec.description = "One time settings for rails"
   spec.license     = "MIT"
 
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
+  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
+  # to allow pushing to a single host or delete this section to allow pushing to any host.
+  # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/pietromoro/activerse"
-  # spec.metadata["changelog_uri"] = "https://github.com/pietromoro/activerse"
+  spec.metadata["source_code_uri"] = "github.com/pietromoro/activerse"
+  # spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  spec.add_dependency "rails", "~> 6.1"
-
-  spec.add_development_dependency "sqlite3", "~> 1.4.1"
+  spec.add_dependency "rails", "~> 6.1.6", ">= 6.1.6.1"
 end
